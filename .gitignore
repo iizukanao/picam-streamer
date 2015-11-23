@@ -1,0 +1,8 @@
+.DS_Store
+*~
+*.sw[po]
+node_modules
+hooks
+rec
+state
+archive

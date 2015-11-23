@@ -1,0 +1,46 @@
+#!/bin/sh
+# /etc/init.d/picam-streamer
+
+### BEGIN INIT INFO
+# Provides: picam-streamer
+# Required-Start: $ALL
+# Required-Stop: $ALL
+# Should-Start: 
+# Should-Stop: 
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: picam-streamer
+# Description: picam-streamer service
+### END INIT INFO
+
+# This part always gets executed
+
+PROG_DIR=/home/pi/picam-streamer
+
+# The following part carries out specific functions depending on arguments.
+case "$1" in
+  start)
+    echo "Starting picam-streamer"
+    $PROG_DIR/script/start.sh
+    ;;
+  stop)
+    echo "Stopping picam-streamer"
+    $PROG_DIR/script/stop.sh
+    ;;
+  status)
+    $PROG_DIR/script/status.sh
+    if [ $? -eq 0 ]; then
+      echo "picam-streamer is alive"
+      exit 0
+    else
+      echo "picam-streamer is not alive"
+      exit 1
+    fi
+    ;;
+  *)
+    echo "Usage: /etc/init.d/picam-streamer {start|stop|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
