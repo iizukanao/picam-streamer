@@ -1,5 +1,7 @@
 Video and audio live streaming with Raspberry Pi. It's easy as pie.
 
+<img src="https://github.com/iizukanao/picam-streamer/raw/master/images/screenshot.png" alt="Screenshot" style="max-width:100%;" width="500" height="408">
+
 # How to use
 
 1. Download the SD card image from http://s.kyu-mu.net/picam-streamer-latest/ which is based on Raspbian jessie.
