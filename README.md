@@ -1,4 +1,4 @@
-Video and audio live streaming with Raspberry Pi. It's easy as pie.
+Out-of-the-box SD card image for live streaming with Raspberry Pi. It's easy as pie.
 
 <img src="https://github.com/iizukanao/picam-streamer/raw/master/images/screenshot.png" alt="Screenshot" style="max-width:100%;" width="500" height="408">
 
