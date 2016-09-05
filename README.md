@@ -6,11 +6,12 @@ Out-of-the-box SD card image for live streaming with Raspberry Pi. It's easy as 
 
 1. Connect [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module/) (and optionally a USB microphone) to Raspberry Pi.
 2. Download the SD card image from [http://s.kyu-mu.net/picam-streamer-latest/](http://s.kyu-mu.net/picam-streamer-latest/). This image is based on [Raspbian Jessie Lite](https://www.raspberrypi.org/downloads/raspbian/).
-3. Write the downloaded image to your SD card.
-4. Boot the Raspberry Pi and login with `pi` and `raspberry` as the username and password.
-5. Change your password with `passwd` command.
-6. Find out your Raspberry Pi's IP address with `ifconfig` command.
-7. Open http://RASPI_IP/view/ with Flash Player enabled browser. Replace RASPI_IP with your Raspberry Pi's IP address. The expected latency of video is about a second.
+3. Write the downloaded image to an SD card.
+4. Boot the Raspberry Pi.
+5. Find out the Raspberry Pi's IP address. If you don't know how to find out the IP address, SSH login to Raspberry Pi with `pi` and `raspberry` as username and password, then run `ifconfig` command.
+6. Open http://RASPI_IP/view/ with Flash Player enabled browser. Replace RASPI_IP with the Raspberry Pi's IP address.
+
+The expected latency of video is about a second. Also, please change your login password with `passwd` command.
 
 ## Disabling camera LED
 
