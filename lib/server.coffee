@@ -2,7 +2,7 @@ StreamServer = require 'node-rtsp-rtmp-server'
 fs = require 'fs'
 url = require 'url'
 path = require 'path'
-spawn = require('child_process').spawn
+child_process = require 'child_process'
 
 PICAM_UID = 1000
 PICAM_CWD = path.normalize "#{__dirname}/.."
@@ -32,7 +32,7 @@ picam = null
 startStreamProcess = ->
   console.log "spawning picam"
   # ionice: -c1 (realtime) -n0 (highest priority)
-  picam = spawn 'nice', [
+  picam = child_process.spawn 'nice', [
     '-n', '-20', 'ionice', '-c1', '-n0', 'sudo', '-u', "##{PICAM_UID}",
     # picam command options
     PICAM_PATH, '--rtspout', '--alsadev', 'hw:1,0',
@@ -57,7 +57,13 @@ streamServer.start ->
 process.on 'SIGINT', ->
   console.log "Got SIGINT. Sending SIGINT to picam"
   if DO_SPAWN_PICAM and picam?
-    picam.kill 'SIGINT'
+    child_process.exec 'pidof picam', (err, stdout, stderr) ->
+      if err
+        console.error "pidof command error: #{err}"
+        return
+      picamPid = parseInt(stdout, 10)
+      console.log "picam pid: #{picamPid}"
+      process.kill picamPid, 'SIGINT'
   else
     process.kill process.pid, 'SIGTERM'
 
