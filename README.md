@@ -5,7 +5,7 @@ Out-of-the-box SD card image for live streaming with Raspberry Pi. It's easy as 
 # How to use
 
 1. Connect [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module/) (and optionally a USB microphone) to Raspberry Pi.
-2. Download the SD card image from [http://s.kyu-mu.net/picam-streamer-latest/](http://s.kyu-mu.net/picam-streamer-latest/). This image is based on [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) version 2017-09-07.
+2. Download the SD card image from [http://s.kyu-mu.net/picam-streamer-latest/](http://s.kyu-mu.net/picam-streamer-latest/). This image is based on [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) version 2018-06-27.
 3. Write the downloaded image to an SD card. Optionally, mount the image and create /boot/ssh empty file in order to automatically start SSH server on next boot.
 4. Boot the Raspberry Pi.
 5. Find out the Raspberry Pi's IP address. If you don't know how to find out the IP address, login to Raspberry Pi with `pi` and `raspberry` as username and password, then run `ifconfig` command.
