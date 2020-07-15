@@ -4,12 +4,12 @@ Out-of-the-box SD card image for live streaming with Raspberry Pi. It's easy as 
 
 # How to use
 
-1. Connect [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module/) (and optionally a USB microphone) to Raspberry Pi.
-2. Download the SD card image from [http://s.kyu-mu.net/picam-streamer-latest/](http://s.kyu-mu.net/picam-streamer-latest/). This image is based on [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) version 2018-06-27.
+1. Connect [Raspberry Pi Camera Module](https://www.raspberrypi.org/products/camera-module/) (and optionally a USB microphone) to a Raspberry Pi.
+2. Download the SD card image from [http://s.kyu-mu.net/picam-streamer-latest/](http://s.kyu-mu.net/picam-streamer-latest/). This image is based on [Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/) version 2020-05-27.
 3. Write the downloaded image to an SD card. Optionally, mount the image and create /boot/ssh empty file in order to automatically start SSH server on next boot.
-4. Boot the Raspberry Pi.
-5. Find out the Raspberry Pi's IP address. If you don't know how to find out the IP address, login to Raspberry Pi with `pi` and `raspberry` as username and password, then run `ifconfig` command.
-6. Open http://RASPI_IP/view/ with Flash Player-enabled browser. Replace RASPI_IP with the Raspberry Pi's IP address.
+4. Boot the Raspberry Pi. SSH server will automatically start. If you want to disable SSH server, please do so via `sudo raspi-config`.
+5. Find out the Raspberry Pi's IP address. If you don't know how to find out the IP address, login to the Raspberry Pi with username `pi` and password `raspberry`, then run `ip a` command. To disable SSH server, run `raspi-config` and go to "Interfacing Options" &gt; "SSH" menu.
+6. Open http://*RASPI_IP*/view/ with Flash Player-enabled browser. Replace *RASPI_IP* with the Raspberry Pi's IP address. Alternatively, you can view the stream with VLC media player via rtsp://*RASPI_IP*:80/live/picam URL.
 7. If you use microphone, adjust microphone capture volume with `alsamixer` command. Press F6 to select your sound card, then press F4 to select "Capture" volume control. Use arrow keys to turn up or down the volume.
 
 The expected latency of video is about a second. Also, please change your login password with `passwd` command.
