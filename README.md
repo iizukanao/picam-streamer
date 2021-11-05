@@ -14,6 +14,22 @@ Out-of-the-box SD card image for live streaming with Raspberry Pi. It's easy as 
 
 The expected latency of video is about a second. Also, please change your login password with `passwd` command.
 
+# Configuration
+
+Audio/video capture configuration is defined in /home/pi/picam-streamer/lib/server.js as follows.
+
+```js
+picam = child_process.spawn('nice', ['-n', '-20', 'ionice', '-c1', '-n0', 'sudo', '-u', "#" + PICAM_UID, PICAM_PATH, '--rtspout', '--alsadev', 'hw:1,0'], {
+```
+
+The arguments are the same as for [picam](https://github.com/iizukanao/picam#command-options). You can add arguments to the end like this:
+
+```js
+picam = child_process.spawn('nice', ['-n', '-20', 'ionice', '-c1', '-n0', 'sudo', '-u', "#" + PICAM_UID, PICAM_PATH, '--rtspout', '--alsadev', 'hw:1,0', '--rotation', '180'], {
+```
+
+After changing the parameters, run `sudo service picam-streamer restart` and the new configuration will be used.
+
 ## Disabling camera LED
 
 Add `disable_camera_led=1` to /boot/config.txt and reboot the Pi.
